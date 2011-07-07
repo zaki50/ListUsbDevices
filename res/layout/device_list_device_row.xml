@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+	android:paddingRight="@dimen/list_item_padding"
+	android:paddingTop="@dimen/list_item_padding"
+	android:paddingBottom="@dimen/list_item_padding">
+
+	<TextView android:id="@+id/dev_name" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center_vertical" android:paddingLeft="6dip" />
+	<TextView android:id="@+id/dev_id" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center_vertical" android:paddingLeft="6dip" />
+	<TextView android:id="@+id/dev_class" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center_vertical" android:paddingLeft="6dip" />
+	<TextView android:id="@+id/dev_vendor_id"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center_vertical" android:paddingLeft="6dip" />
+	<TextView android:id="@+id/dev_product_id"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:gravity="center_vertical" android:paddingLeft="6dip" />
+</LinearLayout>

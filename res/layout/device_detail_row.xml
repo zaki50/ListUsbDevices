@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="wrap_content" 
+	android:padding="@dimen/list_item_padding">
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_number"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_type"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_dir"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_attrs"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_interval"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_max_packet_size"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:id="@+id/ep_address"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+</LinearLayout>
