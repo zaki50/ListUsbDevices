@@ -88,7 +88,7 @@ public class UsbDeviceDetailFragment extends ListFragment {
         return v;
     }
 
-    private static final class EndMapointpKeys {
+    private static final class EndpointMapKeys {
 
         private static final String ADDRESS = "address";
 
@@ -110,8 +110,8 @@ public class UsbDeviceDetailFragment extends ListFragment {
     private static final class EndpointComparator implements Comparator<Map<String, Object>> {
         @Override
         public int compare(Map<String, Object> object1, Map<String, Object> object2) {
-            final UsbEndpoint ep1 = (UsbEndpoint) object1.get(EndMapointpKeys.ENDPOINT);
-            final UsbEndpoint ep2 = (UsbEndpoint) object2.get(EndMapointpKeys.ENDPOINT);
+            final UsbEndpoint ep1 = (UsbEndpoint) object1.get(EndpointMapKeys.ENDPOINT);
+            final UsbEndpoint ep2 = (UsbEndpoint) object2.get(EndpointMapKeys.ENDPOINT);
             return Integer.valueOf(ep1.getEndpointNumber()).compareTo(
                     Integer.valueOf(ep2.getEndpointNumber()));
         }
@@ -129,15 +129,15 @@ public class UsbDeviceDetailFragment extends ListFragment {
         for (int i = 0; i < endpointCount; i++) {
             final Map<String, Object> epEntry = Maps.newHashMap();
             final UsbEndpoint endpoint = iface.getEndpoint(i);
-            epEntry.put(EndMapointpKeys.ADDRESS, "Address: " + getAddressString(endpoint));
-            epEntry.put(EndMapointpKeys.NUMBER, "Endpoint Number: " + getNumberString(endpoint));
-            epEntry.put(EndMapointpKeys.ATTRS, "Attributes: " + getAttributesString(endpoint));
-            epEntry.put(EndMapointpKeys.DIR, "Direction: " + getDirectionString(endpoint));
-            epEntry.put(EndMapointpKeys.INTERVAL, "Interval: " + getIntervalString(endpoint));
-            epEntry.put(EndMapointpKeys.MAX_PACKET_SIZE, "MaxPacketSize: "
+            epEntry.put(EndpointMapKeys.ADDRESS, "Address: " + getAddressString(endpoint));
+            epEntry.put(EndpointMapKeys.NUMBER, "Endpoint Number: " + getNumberString(endpoint));
+            epEntry.put(EndpointMapKeys.ATTRS, "Attributes: " + getAttributesString(endpoint));
+            epEntry.put(EndpointMapKeys.DIR, "Direction: " + getDirectionString(endpoint));
+            epEntry.put(EndpointMapKeys.INTERVAL, "Interval: " + getIntervalString(endpoint));
+            epEntry.put(EndpointMapKeys.MAX_PACKET_SIZE, "MaxPacketSize: "
                     + getMaxPacketSizeString(endpoint));
-            epEntry.put(EndMapointpKeys.TYPE, "Type: " + getTypeString(endpoint));
-            epEntry.put(EndMapointpKeys.ENDPOINT, endpoint);
+            epEntry.put(EndpointMapKeys.TYPE, "Type: " + getTypeString(endpoint));
+            epEntry.put(EndpointMapKeys.ENDPOINT, endpoint);
 
             epEntries.add(epEntry);
         }
@@ -146,13 +146,13 @@ public class UsbDeviceDetailFragment extends ListFragment {
         final Activity act = getActivity();
         final SimpleAdapter adapter = new SimpleAdapter(act, epEntries, R.layout.device_detail_row,
                 new String[] {
-                        EndMapointpKeys.ADDRESS, //
-                        EndMapointpKeys.NUMBER, //
-                        EndMapointpKeys.ATTRS, //
-                        EndMapointpKeys.DIR, //
-                        EndMapointpKeys.INTERVAL, //
-                        EndMapointpKeys.MAX_PACKET_SIZE, //
-                        EndMapointpKeys.TYPE
+                        EndpointMapKeys.ADDRESS, //
+                        EndpointMapKeys.NUMBER, //
+                        EndpointMapKeys.ATTRS, //
+                        EndpointMapKeys.DIR, //
+                        EndpointMapKeys.INTERVAL, //
+                        EndpointMapKeys.MAX_PACKET_SIZE, //
+                        EndpointMapKeys.TYPE
                 }, //
                 new int[] {
                         R.id.ep_address, //
