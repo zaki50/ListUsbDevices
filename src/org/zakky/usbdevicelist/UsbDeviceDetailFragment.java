@@ -28,6 +28,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
@@ -43,6 +44,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * デバイスの詳細を表示する {@link Fragment} です。
+ */
 public class UsbDeviceDetailFragment extends ListFragment {
 
     private static final String ARG_TARGET_INTERFACE = "interface";
@@ -88,6 +92,9 @@ public class UsbDeviceDetailFragment extends ListFragment {
         return v;
     }
 
+    /**
+     * Endpoint 用のマップのキーに使用する文字列です。
+     */
     private static final class EndpointMapKeys {
 
         private static final String ADDRESS = "address";
@@ -104,10 +111,17 @@ public class UsbDeviceDetailFragment extends ListFragment {
 
         private static final String TYPE = "type";
 
+        /**
+         * {@link UsbEndpoint}
+         */
         private static final String ENDPOINT = "endpoint";
     }
 
-    private static final class EndpointComparator implements Comparator<Map<String, Object>> {
+    /**
+     * Endpoint 一覧をソートするための {@link Comparator} です。 Endpoint Number の
+     * 昇順でソートします。
+     */
+    private static final Comparator<Map<String, Object>> EP_COMPARATOR = new Comparator<Map<String, Object>>() {
         @Override
         public int compare(Map<String, Object> object1, Map<String, Object> object2) {
             final UsbEndpoint ep1 = (UsbEndpoint) object1.get(EndpointMapKeys.ENDPOINT);
@@ -115,9 +129,7 @@ public class UsbDeviceDetailFragment extends ListFragment {
             return Integer.valueOf(ep1.getEndpointNumber()).compareTo(
                     Integer.valueOf(ep2.getEndpointNumber()));
         }
-    }
-
-    private static final EndpointComparator EP_COMPARATOR = new EndpointComparator();
+    };
 
     private void showEndpoints(UsbInterface iface) {
         if (!isAdded()) {
